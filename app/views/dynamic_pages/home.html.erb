@@ -1,2 +1,26 @@
-<h1>DynamicPages#home</h1>
-<p>Find me in app/views/dynamic_pages/home.html.erb</p>
+<% provide(:title, 'Home') %>
+<div class="row">
+  <div id="landingHeader" class="span12">
+    <div class="row">
+        <div class="hidden-phone hidden-tablet"><div id="moon" class="span3"><%= image_tag("moon.png") %></div></div>
+    </div>
+    <div class="row">
+      <div id="callout" class="span6 offset5">
+        <div class="row">
+            <div class="span5">
+              <% if current_user == nil %>
+                <%= render :partial => "dynamic_pages/home_partials/guest_hero" %>
+              <% else %>
+                <%= render :partial => "dynamic_pages/home_partials/user_hero" %>
+              <% end %>
+            </div> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="hidden-phone">
+        <div id="skyline" class="span12"> <%= image_tag("heroskyline.png") %></div>
+      </div>
+    </div>
+  </div>
+</div>

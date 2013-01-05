@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RailsHero</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navibar">
+      <div class="container">
+        <div class="hidden-desktop hidden-tablet">
+          <div id="mobilelogo"><%= image_tag("mobilelogo.png") %></div>
+        </div>
+        <div class="hidden-phone">
+          <div id="logo"><%= link_to image_tag("logo.png"), root_path, id: "logo" %></div>
+        </div>
+        <nav>
+          <ul class="nav pull-left">
+            <% if current_user %>
+              <li><%= link_to "videos", '#' %></li>
+              <li><%= link_to "tutoring sessions", '#' %></li>
+              <li><%= link_to "sign out", signout_path %></li>
+            <% else %>
+              <li><%= link_to "free videos",    '#' %></li>
+              <li><%= link_to "enroll",    '#' %></li>
+              <li><%= link_to "sign in", signin_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>
