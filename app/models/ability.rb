@@ -6,7 +6,7 @@ class Ability
       user ||= User.new
       user.role="guest"
     end
-    # if user.role == "admin"
+    if user.role == "admin"
       can :manage, :all
     elsif user.role == "mentor"
       # can :manage, [Startup, Discussion, Comment] 
