@@ -11,16 +11,18 @@ class Ability
     elsif user.role == "mentor"
       can :create, [Video]
       can :update, [Video]
-      can :update, [User] do |u|
+      can [:update, :destroy], [User] do |u|
         u.try(:id) == user.id
       end   
     elsif user.role == "student"
-      can :update, [User] do |u|
+      can [:update, :destroy], [User] do |u|
         u.try(:id) == user.id
       end
       can :read, :all
     elsif user.role =="user"
-
+      can [:update, :destroy], [User] do |u|
+        u.try(:id) == user.id
+      end
       
     else
       can :read, :all
