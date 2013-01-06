@@ -7,9 +7,9 @@ describe Video do
   it { should respond_to(:video_title) }
   it { should respond_to(:youtube_link) }
   it { should respond_to(:course_number) }
+  it { should respond_to(:course_name) }
 
 context "CanCan authorization" do
-
     context "for users" do
         it "shouldn't allow regular users to create a video" do
           user=FactoryGirl.create(:user)
@@ -32,7 +32,6 @@ context "CanCan authorization" do
           authorize.should be_false
         end
     end
-
     context "for admins" do
         it "should allow admins to create a video" do
           user=FactoryGirl.create(:admin)
@@ -55,7 +54,6 @@ context "CanCan authorization" do
           authorize.should be_true
         end
     end
-
     context "for mentors" do
       it "should allow mentors to create a video" do
         user=FactoryGirl.create(:mentor)
@@ -78,8 +76,5 @@ context "CanCan authorization" do
         authorize.should be_false
       end
     end  
-
-    end
-
-
+  end
 end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  skip_authorization_check :only => [:new, :create]
-
+  load_and_authorize_resource
+  
   # GET /users
   # GET /users.json
   def index

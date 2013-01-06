@@ -1,27 +1,41 @@
-<h1>Listing videos</h1>
-
-<table>
+<h1>Learn for Free</h1>
+<h2>These beginner friendly videos are for you. <br>When you get to the point where you need some one on one help, we are here to help.</h2>
+<div id='video-button'>
+  <button class="btn btn-large btn-warning" type="button">I Need a Hero!</button>
+  <p>enroll for one on one tutoring today</p>
+</div>
+<br>
+<br>
+<h3>Introduction to Ruby and Programming (RB101)</h3>
+<table class="table">
   <tr>
     <th>Video title</th>
     <th>Video description</th>
-    <th>Youtube link</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Course Name</th>
+    <th>Course Number</th>
+    <% if can? :update, Video %><th>Edit Actions</th><% end %>
+    <% if can? :destroy, Video %><th>Destroy</th><% end %>
   </tr>
 
 <% @videos.each do |video| %>
   <tr>
-    <td><%= video.video_title %></td>
-    <td><%= video.video_description %></td>
-    <td><%= video.youtube_link %></td>
-    <td><%= link_to 'Show', video %></td>
-    <td><%= link_to 'Edit', edit_video_path(video) %></td>
-    <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to video.video_title, video %></td>
+    <td><%= link_to video.video_description, video %></td>
+    <td><%= link_to video.course_name, video %></td>
+    <td><%= link_to video.course_number, video %></td>
+    <% if can? :update, Video %><td><%= link_to 'Edit', edit_video_path(video) %></td><% end %>
+    <% if can? :destroy, Video %><td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
   </tr>
 <% end %>
 </table>
-
+<% if can? :create, Video %>
+  <%= link_to 'New Video', new_video_path %>
+<% end %>
+<br />
+<br />
+<br />
 <br />
 
-<%= link_to 'New Video', new_video_path %>
+<h3>February 2013's Course: Rails 101 (RR101)</h3>
+
+<br />

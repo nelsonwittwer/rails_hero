@@ -21,11 +21,11 @@
         <nav>
           <ul class="nav pull-left">
             <% if current_user %>
-              <li><%= link_to "videos", '#' %></li>
+              <li><%= link_to "videos", videos_path %></li>
               <li><%= link_to "tutoring sessions", '#' %></li>
               <li><%= link_to "sign out", signout_path %></li>
             <% else %>
-              <li><%= link_to "free videos",    '#' %></li>
+              <li><%= link_to "free videos",    videos_path %></li>
               <li><%= link_to "pricing",    '#' %></li>
               <li><%= link_to "sign in", signin_path %></li>
             <% end %>
