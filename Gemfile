@@ -7,6 +7,7 @@ gem 'thin'
 gem 'devise'
 gem 'cancan'
 gem 'bootstrap-sass', '~> 2.2.2.0'
+gem "factory_girl_rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
