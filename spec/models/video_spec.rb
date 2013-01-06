@@ -6,6 +6,7 @@ describe Video do
   it { should respond_to(:video_description) }
   it { should respond_to(:video_title) }
   it { should respond_to(:youtube_link) }
+  it { should respond_to(:course_number) }
 
 context "CanCan authorization" do
 

@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  skip_authorization_check :only => [:show, :index]
   # GET /videos
   # GET /videos.json
   def index
