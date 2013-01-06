@@ -1,0 +1,27 @@
+<h1>Listing videos</h1>
+
+<table>
+  <tr>
+    <th>Video title</th>
+    <th>Video description</th>
+    <th>Youtube link</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @videos.each do |video| %>
+  <tr>
+    <td><%= video.video_title %></td>
+    <td><%= video.video_description %></td>
+    <td><%= video.youtube_link %></td>
+    <td><%= link_to 'Show', video %></td>
+    <td><%= link_to 'Edit', edit_video_path(video) %></td>
+    <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Video', new_video_path %>
